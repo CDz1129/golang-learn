@@ -1,13 +1,13 @@
 package main
 
 import (
-	"io/ioutil"
 	"fmt"
+	"io/ioutil"
 )
 
 /**
-	if语言demo,可以看出 if语句后条件不需要加()
- */
+if语言demo,可以看出 if语句后条件不需要加()
+*/
 func ifDemo() {
 
 	const filename = "adc.txt"
@@ -29,27 +29,27 @@ func ifDemo() {
 }
 
 /**
-	switch用法,不需要添加 break,会自动返回
-	switch后可以没有表达式
- */
+switch用法,不需要添加 break,会自动返回
+switch后可以没有表达式
+*/
 func switchDemo() {
-	fmt.Print(grade(81),grade(20),grade(100),grade(90))
+	fmt.Print(grade(81), grade(20), grade(100), grade(90))
 }
 
 func grade(soure int) string {
 
-	g:=""
+	g := ""
 	switch {
-	case soure<60:
-		g="F"
-	case soure<80:
-		g="D"
-	case soure<90:
+	case soure < 60:
+		g = "F"
+	case soure < 80:
+		g = "D"
+	case soure < 90:
 		g = "B"
-	case soure<=100:
-		g="A"
-	case soure<0||soure>100:
-		panic(fmt.Sprintf("Wrong score: %d",soure))
+	case soure <= 100:
+		g = "A"
+	case soure < 0 || soure > 100:
+		panic(fmt.Sprintf("Wrong score: %d", soure))
 	}
 	return g
 }
