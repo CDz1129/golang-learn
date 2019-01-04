@@ -80,6 +80,18 @@ func addAll(sum ...int) int  {
 	return s
 }
 
+
+/**
+	最后是golang中指针学习
+		golang中指针,并不像c++中指针,因为golang中指针是不能参与运算得
+ */
+
+func swap(a, b int) {
+
+	a,b =b,a
+
+}
+
 func main() {
 	//println(eval(5, 5, "*"))
 	//
@@ -92,13 +104,18 @@ func main() {
 	//}, 11, 3)
 	//
 	//println(r,q)
+	//
+	//if i3, e := eval1(1, 10, ")");e!=nil{
+	//	fmt.Println("Error:",e) //注意这里打印,不能使用 println()方法,会乱码,使用fmt.Println()不会
+	//}else {
+	//	println(i3)
+	//}
+	//
+	//print(addAll(1, 2, 3, 4, 5))
 
-	if i3, e := eval1(1, 10, ")");e!=nil{
-		fmt.Println("Error:",e) //注意这里打印,不能使用 println()方法,会乱码,使用fmt.Println()不会
-	}else {
-		println(i3)
-	}
 
-	print(addAll(1, 2, 3, 4, 5))
-
+	var a =1
+	var pa *int = &a
+	*pa = 3
+	println(a)
 }
