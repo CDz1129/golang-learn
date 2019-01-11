@@ -33,8 +33,8 @@ func variableTypeDeduction() {
 }
 
 /**
-	变量定义简单写法
- */
+变量定义简单写法
+*/
 func variableShorter() {
 
 	a, b, c := 1, "hello", false //可以使用 := 的形式来定义变量(推荐使用)
@@ -44,8 +44,8 @@ func variableShorter() {
 }
 
 /**
-	产量的定义
- */
+产量的定义
+*/
 func constTest() {
 
 	const a = 1
@@ -53,29 +53,28 @@ func constTest() {
 
 /**
 函数外常量定义
- */
+*/
 const name = 1
 
 /**
 枚举定义
- */
+*/
 func enums() {
 
 	/**
-		通过 const括号集定义一个枚举
-	 */
+	通过 const括号集定义一个枚举
+	*/
 	const (
-		up = 1
+		up   = 1
 		down = 2
 	)
-
 
 	/**
 	其值可以使用 iota这个关键字来进行 下面的自增,
 	如果想要跳过,可以使用_占位
-	 */
+	*/
 	const (
-		cpp    = iota
+		cpp = iota
 		_
 		java
 		python
@@ -86,10 +85,10 @@ func enums() {
 
 	/**
 	当然iota可以参与运算规则,下面所有都遵守这个规则
-	 */
+	*/
 	// b,kb,mb,gb,tb,pb
 	const (
-		b  = 1 << (10 * iota)
+		b = 1 << (10 * iota)
 		kb
 		mb
 		gb
@@ -97,7 +96,7 @@ func enums() {
 		pb
 	)
 
-	fmt.Println(b,kb,mb,gb,tb,pb)
+	fmt.Println(b, kb, mb, gb, tb, pb)
 
 }
 
