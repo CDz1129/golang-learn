@@ -91,7 +91,7 @@ func main() {
 	//
 	//println(convert2Bin(13))
 
-	printFile("adc.txt")
+	printFile("basic/adc.txt")
 
 	forever()
 }
