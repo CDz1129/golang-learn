@@ -85,10 +85,11 @@ func addAll(sum ...int) int {
 	golang中指针,并不像c++中指针,因为golang中指针是不能参与运算得
 */
 
+/**
+	指针学习,简单的值交接
+ */
 func swap(a, b int) {
-
 	a, b = b, a
-
 }
 
 func main() {
@@ -112,8 +113,16 @@ func main() {
 	//
 	//print(addAll(1, 2, 3, 4, 5))
 
-	var a = 1
-	var pa *int = &a
-	*pa = 3
-	println(a)
+
+	a,b:= 1,2
+
+	swap(a,b)
+
+	print(a,b)
+
+
+	//var a = 1
+	//var pa *int = &a
+	//*pa = 3
+	//println(a)
 }
