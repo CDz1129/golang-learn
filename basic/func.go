@@ -92,6 +92,14 @@ func swap(a, b int) {
 	a, b = b, a
 }
 
+func swapByPointer(a, b *int) {
+	*a, *b = *b, *a
+}
+
+func swapByReturn(a,b int) (c,d int)  {
+	return b,a
+}
+
 func main() {
 	//println(eval(5, 5, "*"))
 	//
@@ -113,13 +121,11 @@ func main() {
 	//
 	//print(addAll(1, 2, 3, 4, 5))
 
+	a, b := 1, 2
 
-	a,b:= 1,2
+	a, b = swapByReturn(a, b)
 
-	swap(a,b)
-
-	print(a,b)
-
+	fmt.Println(a, b)
 
 	//var a = 1
 	//var pa *int = &a
