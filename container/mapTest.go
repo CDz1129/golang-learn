@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /**
 查找到一个字符串中
 最长不重复字符串
@@ -8,12 +10,31 @@ package main
 asdasdss -> asd
 */
 
-func findMaxNoRepeatString(s string) string {
+func findMaxNoRepeatString(s string) int {
 
-	temp := ""
+	start := 0
+	keysIndex := make(map[byte]int)
+	lenth := 0
 
-	for e := range s {
-
+	for i, v := range []byte(s) {
+		lastIndex, ok := keysIndex[v]
+		if ok && lastIndex >= start {
+			start = lastIndex + 1
+		} else {
+			lenth = i - start + 1
+		}
+		keysIndex[v] = i
 	}
+	return lenth
 
+}
+
+func main() {
+	fmt.Println(findMaxNoRepeatString("abc"))
+	fmt.Println(findMaxNoRepeatString("abccba"))
+	fmt.Println(findMaxNoRepeatString("aaaaa"))
+	fmt.Println(findMaxNoRepeatString(""))
+	fmt.Println(findMaxNoRepeatString("asdfghjk"))
+	fmt.Println(findMaxNoRepeatString("我是小智"))
+	fmt.Println(findMaxNoRepeatString("小智智小"))
 }
