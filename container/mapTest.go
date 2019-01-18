@@ -13,10 +13,10 @@ asdasdss -> asd
 func findMaxNoRepeatString(s string) int {
 
 	start := 0
-	keysIndex := make(map[byte]int)
+	keysIndex := make(map[rune]int)
 	lenth := 0
 
-	for i, v := range []byte(s) {
+	for i, v := range []rune(s) {
 		lastIndex, ok := keysIndex[v]
 		if ok && lastIndex >= start {
 			start = lastIndex + 1
