@@ -1,16 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"golang-learn/tree"
+)
 
 func main() {
 
-
 	//创建 和 调用
-	var root tree
+	var root tree.Node
 
-
-
-	root.value = 1
+	root.Value = 1
 	root.left = &treeNode{value: 5}
 	root.right = new(treeNode) //new 返回的是指针
 	root.left.right = createNode(0)
@@ -32,7 +32,7 @@ func main() {
 
 	goroutine 1 [running]:
 	main.(*treeNode).setValue(0x0, 0x1)
-	 */
+	*/
 	//方法编写
 	root.print()
 
@@ -58,7 +58,7 @@ func main() {
 	- 方法不特殊声明的话,是值传递
 	- 修改值必须使用引用传递
 	- 无论方法接受者是 值 还是 指针,调用者可以使用 指针 也可以使用值 调用(编译器自己判断)
-	 */
+	*/
 
 	fmt.Println("--------------traverse----------")
 
