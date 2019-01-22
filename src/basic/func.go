@@ -86,8 +86,8 @@ func addAll(sum ...int) int {
 */
 
 /**
-	指针学习,简单的值交接
- */
+指针学习,简单的值交接
+*/
 func swap(a, b int) {
 	a, b = b, a
 }
@@ -96,8 +96,8 @@ func swapByPointer(a, b *int) {
 	*a, *b = *b, *a
 }
 
-func swapByReturn(a,b int) (c,d int)  {
-	return b,a
+func swapByReturn(a, b int) (c, d int) {
+	return b, a
 }
 
 func main() {

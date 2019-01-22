@@ -39,7 +39,7 @@ func main() {
 		len   int
 		cap   int
 	}
-	 */
+	*/
 
 	//s4 = s4[:6]
 	//fmt.Println("reslice s4:",s4)
@@ -77,7 +77,7 @@ func main() {
 	ss1: [2 3 4 5 10] ss1 是对s1的追加,我们发现其追加完后会再次返回一个slice
 							且看到arr这个数组的后面两个值被改变了 而arr数组改变,s2也会就会跟着变化
 	ss2: [2 3 4 5 10 10]
-	 */
+	*/
 	fmt.Println("ss3:", ss3)
 	fmt.Printf("ss3 v:%v, len(ss3):%d, cap(ss3):%d\n", ss3, len(ss3), cap(ss3))
 	fmt.Printf("arr v:%v, len(arr):%d, cap(arr):%d\n", arr, len(arr), cap(arr))
@@ -93,11 +93,11 @@ func main() {
 								打印出ss3的信息可以看出,其实已经是一个行的slice了,跟arr没有任何关系
 								疑问 为什么 cap为12?
 								要回答为什么是12我们得再做一个实验
-	 */
+	*/
 
 	/**
 	解答cap得长度秘密
-	 */
+	*/
 	var s []int
 	for i := 0; i < 10; i++ {
 		fmt.Printf("s v:%v, len(s):%d, cap(s):%d\n", s, len(s), cap(s))
@@ -118,7 +118,7 @@ func main() {
 	打印结果可以发现,其实cap是有规律得变化得.
 	初始时我们创建了一个空的slice s ,再golang中没有null得概念,有nil(nil会初始化数据),但是nil是可以调用复制得
 	开始0 后面1 超过1cap后变成2 后面是4,由此可以看出,cap的长度是,当cap长度不足时,扩充2倍
-	 */
+	*/
 
 	//create slice
 	s1 = arr[:]
@@ -154,8 +154,8 @@ func main() {
 	tail := copyArr[len(copyArr)-1]
 	copyArr = copyArr[:len(copyArr)-1]
 
-	fmt.Println("tail:" ,tail)
-	fmt.Println("after poping from back ,copyArr:",copyArr)
+	fmt.Println("tail:", tail)
+	fmt.Println("after poping from back ,copyArr:", copyArr)
 
 }
 

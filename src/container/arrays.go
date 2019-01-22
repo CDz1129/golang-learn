@@ -4,11 +4,11 @@ import "fmt"
 
 /**
 array数组基本操作
- */
+*/
 
 /**
 创建一个数组
- */
+*/
 func createArrays() {
 
 	//第一种 定义数组

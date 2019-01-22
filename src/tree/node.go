@@ -3,15 +3,15 @@ package tree
 import "fmt"
 
 type Node struct {
-	value       int
-	left, right *Node //指针
+	Value       int
+	Left, Right *Node //指针
 }
 
 /**
 工厂方法,控制创建
- */
-func createNode(value int) *Node {
-	return &Node{value: value}
+*/
+func CreateNode(value int) *Node {
+	return &Node{Value: value}
 	/**
 	注意 :
 			这里因为我一直做Java觉得这样写没有什么问题,
@@ -24,39 +24,37 @@ func createNode(value int) *Node {
 			而go中一个地址 到底是在堆还是栈上?
 			不用管! 编译器会智能判断,如果后续需要用到,地址就会创建在堆上
 					如果用不到就会创建在栈上
-	 */
+	*/
 
 }
 
 //此定义,方法接受者在前,这样的函数,其实和print(node Node)效果一样,
 //只是调用形式上不同,
-//func (node Node)print() --> root.print()
-//func print(node Node)   --> print(root)
+//func (node Node)Print() --> root.Print()
+//func Print(node Node)   --> Print(root)
 //那么思考,传入的是值还是指针?
-func (node Node) print() {
-	fmt.Print(node.value," ")
+func (node Node) Print() {
+	fmt.Print(node.Value, " ")
 }
 
 //因为之前我们学过,go语言中都是值传递,所以这里猜测也是
-func (node *Node) setValue(value int) {
+func (node *Node) SetValue(value int) {
 
 	if node == nil {
 		fmt.Println("nil调用了函数setValue")
 		return
 	}
 
-	node.value = value
+	node.Value = value
 	//发现结构的指针,使用不像内建类型一样麻烦,
 	//直接使用变量名就好
 }
 
-func (node *Node) traverse() {
+func (node *Node) Traverse() {
 	if node == nil {
 		return
 	}
-	node.left.traverse()
-	node.print()
-	node.right.traverse()
+	node.Left.Traverse()
+	node.Print()
+	node.Right.Traverse()
 }
-
-

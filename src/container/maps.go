@@ -24,28 +24,26 @@ func main() {
 	idCard := studens["idCard"]
 	fmt.Println(idCard) //打印空 ""所以我们怎么判断,key是否取到了呢?
 
-	idCard,ok := studens["idCard"] //其实 获取map可以返回两个参数,第二个就是bool类型,false表示不存在
-	fmt.Println(idCard,ok)
-	if idCard,ok := studens["idCard"];ok {
+	idCard, ok := studens["idCard"] //其实 获取map可以返回两个参数,第二个就是bool类型,false表示不存在
+	fmt.Println(idCard, ok)
+	if idCard, ok := studens["idCard"]; ok {
 		fmt.Println(idCard)
-	}else {
+	} else {
 		fmt.Println("key idCard not exist")
 	}
 
-
-
 	//创建 map
-	var m2 map[string]int  //map == nil
+	var m2 map[string]int //map == nil
 
 	m3 := make(map[string]string) //map == empty map
 
-	fmt.Println(studens,m2,m3)
+	fmt.Println(studens, m2, m3)
 
 	//遍历 map
 	fmt.Println("----------key value一起遍历------\n")
 	//key value一起遍历
 	for k, v := range studens {
-		fmt.Println(k,v)
+		fmt.Println(k, v)
 	}
 	fmt.Println("---------只遍历key-------\n")
 	//只遍历key
@@ -62,9 +60,9 @@ func main() {
 
 	//删除存在的键
 	delete(studens, "age")
-	fmt.Println("delete age after:",studens)
+	fmt.Println("delete age after:", studens)
 
 	//删除不存的键
-	delete(studens,"idCard")
-	fmt.Println("delete ont exist key after:",studens)
+	delete(studens, "idCard")
+	fmt.Println("delete ont exist key after:", studens)
 }

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"golang-learn/tree"
+	"tree"
 )
 
 func main() {
@@ -11,15 +11,15 @@ func main() {
 	var root tree.Node
 
 	root.Value = 1
-	root.left = &treeNode{value: 5}
-	root.right = new(treeNode) //new 返回的是指针
-	root.left.right = createNode(0)
-	root.right.left = &treeNode{value: 10, left: nil}
-	root.right.left.right = &treeNode{
-		value: 15,
-		left: &treeNode{
-			value: 0,
-			left:  nil,
+	root.Left = &tree.Node{Value: 5}
+	root.Right = new(tree.Node) //new 返回的是指针
+	root.Left.Right= tree.CreateNode(0)
+	root.Right.Left = &tree.Node{Value: 10, Left: nil}
+	root.Right.Left.Right= &tree.Node{
+		Value: 15,
+		Left: &tree.Node{
+			Value: 0,
+			Left:  nil,
 		}}
 
 	//root.right.left.right.right.setValue(1)
@@ -34,12 +34,12 @@ func main() {
 	main.(*treeNode).setValue(0x0, 0x1)
 	*/
 	//方法编写
-	root.print()
+	root.Print()
 
-	root.right.print()
-	root.right.setValue(5)
+	root.Right.Print()
+	root.Right.SetValue(5)
 	//func (node treeNode)setValue(value int)
-	root.right.print()
+	root.Right.Print()
 	//{0 0xc04204c440 <nil>}
 	//{0 0xc04204c440 <nil>}
 	//发现两次打印一样,并没有修改值,
@@ -62,11 +62,11 @@ func main() {
 
 	fmt.Println("--------------traverse----------")
 
-	root = treeNode{value: 5}
-	root.left = &treeNode{value: 1}
-	root.right = &treeNode{value: 2}
-	root.left.right = &treeNode{value: 3}
-	root.right.left = &treeNode{value: 4}
+	root = tree.Node{Value: 5}
+	root.Left = &tree.Node{Value: 1}
+	root.Right = &tree.Node{Value: 2}
+	root.Left.Right= &tree.Node{Value: 3}
+	root.Right.Left = &tree.Node{Value: 4}
 
-	root.traverse()
+	root.Traverse()
 }
