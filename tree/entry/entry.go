@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"tree"
+
+	"com.cdz/learngo/tree"
 )
 
 func main() {
