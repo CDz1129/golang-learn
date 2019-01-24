@@ -1,10 +1,34 @@
 package main
 
 import (
-	"fmt"
-
 	"com.cdz/learngo/tree"
+	"fmt"
 )
+
+
+/**
+拓展已有的类:
+
+拓展我们自己写的tree.Node
+ */
+
+type myTreeNode struct {
+	node *tree.Node //最好是指针 因为go特性声明指针 就会传值copy影响性能
+}
+
+/**
+拓展后续遍历
+ */
+func (mynode *myTreeNode)postOrder() {
+	if mynode==nil || mynode.node==nil{
+		return
+	}
+	right := myTreeNode{mynode.node.Right}
+	left:= myTreeNode{mynode.node.Left}
+	right.postOrder()
+	left.postOrder()
+	mynode.node.Print()
+}
 
 func main() {
 
@@ -69,5 +93,12 @@ func main() {
 	root.Left.Right= &tree.Node{Value: 3}
 	root.Right.Left = &tree.Node{Value: 4}
 
+	node := myTreeNode{nil}
+
+	fmt.Println(node)
 	root.Traverse()
+	fmt.Println()
+	mytree:= myTreeNode{&root}
+	mytree.postOrder()
+	fmt.Println()
 }
