@@ -1,19 +1,19 @@
 package queue
 
-type Queue []int
+type Queue []interface{}
 
-func (q *Queue) Push(v int) {
+func (q *Queue) Push(v interface{}) {
 
 	*q = append(*q, v)
 }
 
-func (q *Queue) Pop() (r int,ok bool){
-	if len(*q)== 0{
-		return 0,false
+func (q *Queue) Pop() (r interface{}, ok bool) {
+	if len(*q) == 0 {
+		return 0, false
 	}
 	head := (*q)[0]
 	*q = (*q)[1:]
-	return head,true
+	return head, true
 }
 
 func (q *Queue) IsEmpty() bool {

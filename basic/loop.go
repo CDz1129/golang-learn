@@ -2,8 +2,10 @@ package main
 
 import (
 	"bufio"
+	"io"
 	"os"
 	"strconv"
+	"strings"
 )
 
 /**
@@ -52,7 +54,12 @@ func printFile(filename string) {
 		panic(e)
 	}
 
-	scanner := bufio.NewScanner(file)
+	printContentFile(file)
+
+}
+
+func printContentFile(reader io.Reader) {
+	scanner := bufio.NewScanner(reader)
 
 	for scanner.Scan() {
 		println(scanner.Text())
@@ -93,5 +100,14 @@ func main() {
 
 	printFile("basic/adc.txt")
 
-	forever()
+	println("---------")
+	s := `asd
+
+	sss
+	www
+	111
+	1`
+
+	printContentFile(strings.NewReader(s))
+	//forever()
 }
