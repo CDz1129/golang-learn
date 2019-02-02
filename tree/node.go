@@ -58,3 +58,13 @@ func (node *Node) Traverse() {
 	node.Print()
 	node.Right.Traverse()
 }
+
+//通过函数式编程，使traverse更具有扩展性
+func (node *Node) FunTraverse(f func(node *Node)) {
+	if node == nil {
+		return
+	}
+	node.Left.FunTraverse(f)
+	f(node)
+	node.Right.FunTraverse(f)
+}

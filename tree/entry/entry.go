@@ -5,12 +5,11 @@ import (
 	"fmt"
 )
 
-
 /**
 拓展已有的类:
 
 拓展我们自己写的tree.Node
- */
+*/
 
 type myTreeNode struct {
 	node *tree.Node //最好是指针 因为go特性声明指针 就会传值copy影响性能
@@ -18,13 +17,13 @@ type myTreeNode struct {
 
 /**
 拓展后续遍历
- */
-func (mynode *myTreeNode)postOrder() {
-	if mynode==nil || mynode.node==nil{
+*/
+func (mynode *myTreeNode) postOrder() {
+	if mynode == nil || mynode.node == nil {
 		return
 	}
 	right := myTreeNode{mynode.node.Right}
-	left:= myTreeNode{mynode.node.Left}
+	left := myTreeNode{mynode.node.Left}
 	right.postOrder()
 	left.postOrder()
 	mynode.node.Print()
@@ -38,9 +37,9 @@ func main() {
 	root.Value = 1
 	root.Left = &tree.Node{Value: 5}
 	root.Right = new(tree.Node) //new 返回的是指针
-	root.Left.Right= tree.CreateNode(0)
+	root.Left.Right = tree.CreateNode(0)
 	root.Right.Left = &tree.Node{Value: 10, Left: nil}
-	root.Right.Left.Right= &tree.Node{
+	root.Right.Left.Right = &tree.Node{
 		Value: 15,
 		Left: &tree.Node{
 			Value: 0,
@@ -90,7 +89,7 @@ func main() {
 	root = tree.Node{Value: 5}
 	root.Left = &tree.Node{Value: 1}
 	root.Right = &tree.Node{Value: 2}
-	root.Left.Right= &tree.Node{Value: 3}
+	root.Left.Right = &tree.Node{Value: 3}
 	root.Right.Left = &tree.Node{Value: 4}
 
 	node := myTreeNode{nil}
@@ -98,7 +97,19 @@ func main() {
 	fmt.Println(node)
 	root.Traverse()
 	fmt.Println()
-	mytree:= myTreeNode{&root}
+	mytree := myTreeNode{&root}
 	mytree.postOrder()
-	fmt.Println()
+	fmt.Println("-----------")
+
+	//打印信息
+	root.FunTraverse(func(node *tree.Node) {
+		node.Print()
+	})
+	fmt.Println("-----------")
+	//计数
+	rootCount := 0
+	root.FunTraverse(func(node *tree.Node) {
+		rootCount++
+	})
+	fmt.Println("Traverse counts :", rootCount)
 }
