@@ -1,11 +1,10 @@
-package main
+package loop
 
 import (
 	"bufio"
 	"io"
 	"os"
 	"strconv"
-	"strings"
 )
 
 /**
@@ -46,7 +45,7 @@ func convert2Bin(n int) string {
 	for只有一个判断语言,就能类似与 while循环语言 ,
 	值得一提的是golang中没有while语句
 */
-func printFile(filename string) {
+func PrintFile(filename string) {
 
 	file, e := os.Open(filename)
 
@@ -54,11 +53,11 @@ func printFile(filename string) {
 		panic(e)
 	}
 
-	printContentFile(file)
+	PrintContentFile(file)
 
 }
 
-func printContentFile(reader io.Reader) {
+func PrintContentFile(reader io.Reader) {
 	scanner := bufio.NewScanner(reader)
 
 	for scanner.Scan() {
@@ -77,37 +76,4 @@ func forever() {
 	for {
 		println("a")
 	}
-}
-
-/**
- 	- 总结for
-		- 忽略初始条件,就相当于while
-		- 死循环直接for {} 使用
-
-	基本语法
-	- for,if后条件语句不需要括号
-	- if条件里也可以定义变量
-	- 没有while
-	- switch不需要break,也直接switch多个条件
-*/
-func main() {
-
-	//forDemo()
-	//
-	//println(convert2Bin(5))
-	//
-	//println(convert2Bin(13))
-
-	printFile("basic/adc.txt")
-
-	println("---------")
-	s := `asd
-
-	sss
-	www
-	111
-	1`
-
-	printContentFile(strings.NewReader(s))
-	//forever()
 }
