@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 /**
 函数学习
@@ -98,6 +101,12 @@ func swapByPointer(a, b *int) {
 
 func swapByReturn(a, b int) (c, d int) {
 	return b, a
+}
+
+func triangle(a, b int) int {
+	var c int
+	c = int(math.Sqrt(float64(a*a + b*b)))
+	return c
 }
 
 func main() {
