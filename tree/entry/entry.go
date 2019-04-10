@@ -112,4 +112,15 @@ func main() {
 		rootCount++
 	})
 	fmt.Println("Traverse counts :", rootCount)
+
+	//使用channel来遍历
+	nodes := root.TraverseByChannel()
+	maxNode := 0
+	for node := range nodes {
+		if node.Value > maxNode {
+			maxNode = node.Value
+		}
+	}
+
+	fmt.Println("Traverse maxNode value: ", maxNode)
 }

@@ -68,3 +68,14 @@ func (node *Node) FunTraverse(f func(node *Node)) {
 	f(node)
 	node.Right.FunTraverse(f)
 }
+
+func (node *Node) TraverseByChannel() chan *Node {
+	out := make(chan *Node)
+	go func() {
+		node.FunTraverse(func(node *Node) {
+			out <- node
+		})
+		close(out)
+	}()
+	return out
+}
